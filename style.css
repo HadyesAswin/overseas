@@ -1,0 +1,3516 @@
+/* indexpagesections */
+/* --- Top Bar Styles --- */
+.top-bar {
+    font-size: 0.9rem; /* Makes the text slightly smaller */
+}
+
+.top-bar a {
+    transition: opacity 0.3s ease; /* Smooth hover effect */
+}
+
+.top-bar a:hover {
+    opacity: 0.8; /* Fades the icon/text slightly on hover */
+}
+
+/* --- Main Navbar Styles --- */
+.navbar {
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-brand .brand-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0d6efd; /* A default blue, change this to your brand color */
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* Adds nice spacing */
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #0d6efd; /* Your brand color on hover/active */
+}
+
+/* Style for the dropdown menu */
+.dropdown-menu {
+    border-radius: 0;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+/* --- Desktop Hover for Dropdown --- */
+/* We use 992px as the breakpoint because that's what 'navbar-expand-lg' uses */
+@media (min-width: 992px) {
+    .navbar .nav-item.dropdown:hover .dropdown-menu {
+        display: block; /* Shows the menu on hover */
+        margin-top: 0;  /* Removes any default gap */
+    }
+}
+
+
+
+/* --- Top Bar Contact Readability (New Attempt) --- */
+.top-contact {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    
+    /* This font has 'even' numbers */
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* We still need the styles for the icons */
+.top-contact-icon {
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+/* And the hover effect */
+.top-contact:hover {
+    opacity: 0.8;
+    color: #fff !important;
+}
+
+
+/* herosection */
+
+/* --- Hero Carousel Styles --- */
+#hero-carousel {
+    position: relative;
+    max-height: 550px; /* Slightly reduce overall max-height for a sleeker look */
+    overflow: hidden;
+}
+
+.hero-img {
+    filter: brightness(0.6); /* Slightly darken image */
+    object-fit: cover;
+    height: 100%;
+    max-height: 550px;
+    width: 100%; /* Ensure image fills width */
+}
+
+/* NEW: Carousel Overlay */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 123, 255, 0.516), rgba(200, 200, 200, 0.2)); /* Blue gradient overlay */
+    z-index: 1; /* Above image, below caption */
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 0; /* Align to the left */
+    right: 0;
+    bottom: 0;
+    z-index: 2; /* Above the overlay */
+    display: flex; /* Use flexbox to position content */
+    align-items: center; /* Vertically center content */
+    padding-left: 10%; /* Indent text from the left edge */
+    padding-right: 5%; /* Prevent text from going too far right */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+.carousel-caption .caption-content {
+    max-width: 600px; /* Limit width of text for readability */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+}
+
+.carousel-caption h5 {
+    font-size: 3.5rem; /* Larger, bolder heading */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem; /* Larger paragraph */
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Premium Button Style (Adjusted) */
+.carousel-caption .btn {
+    border-radius: 50px;
+    padding: 0.8rem 2.2rem; /* More padding */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex; /* Allows icon and text to align */
+    align-items: center;
+}
+
+.carousel-caption .btn i {
+    font-size: 0.9em; /* Adjust icon size relative to text */
+}
+
+.carousel-caption .btn-primary {
+    background-color: #ffc107; /* Uniways Global inspired orange */
+    border-color: #ffc107;
+    color: #333; /* Dark text for orange button */
+}
+.carousel-caption .btn-primary:hover {
+    background-color: #e0a800; /* Darker orange on hover */
+    border-color: #e0a800;
+    color: #333;
+}
+/* Ensure other buttons use default Bootstrap styles or define specific colors as needed */
+
+
+/* --- Animations (Keyframes) --- */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation classes - initially hidden, animated on active slide */
+.animated {
+    opacity: 0; /* Start hidden */
+    animation-duration: 0.8s; /* Animation speed */
+    animation-fill-mode: both; /* Keep element in final state */
+}
+
+.carousel-item.active .slideInLeft {
+    animation-name: slideInLeft;
+}
+
+.carousel-item.active .fadeInUp {
+    animation-name: fadeInUp;
+}
+
+/* Animation delays */
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1199.98px) { /* Large desktops / Laptops */
+    .carousel-caption h5 {
+        font-size: 3rem;
+    }
+    .carousel-caption p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 991.98px) { /* Tablets */
+    #hero-carousel, .hero-img {
+        max-height: 450px; /* Reduce height further on tablets */
+    }
+    .carousel-caption {
+        padding-left: 8%;
+    }
+    .carousel-caption h5 {
+        font-size: 2.5rem;
+    }
+    .carousel-caption p {
+        font-size: 1.1rem;
+        max-width: 95%;
+    }
+    .carousel-caption .btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small tablets and phones */
+    #hero-carousel, .hero-img {
+        max-height: 350px; /* Smaller height on phones */
+    }
+    .carousel-caption {
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center; /* Center text on very small screens */
+        justify-content: center; /* Center content block on very small screens */
+    }
+    .carousel-caption .caption-content {
+        max-width: 100%; /* Allow content to take full width */
+    }
+    .carousel-caption h5 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    .carousel-caption p {
+        display: none !important; /* Hide paragraph on small phones */
+    }
+    .carousel-caption .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 575.98px) { /* Extra small phones */
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Carousel Button Hotfix --- */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 3; /* Make sure it's higher than the caption (z-index: 2) */
+}
+
+
+
+
+/* why study abroad */
+
+ /* Reset some default margin/padding */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #1c1c1c;
+  }
+
+  /* Icon wrapper (chatbot + whatsapp) fixed bottom-right, vertical stack */
+  .icon-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  /* Chatbot icon styling */
+  .chatbot-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #7d6fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(125, 111, 255, 0.4);
+    transition: background-color 0.3s ease;
+  }
+  .chatbot-icon:hover {
+    background-color: #5a4dcc;
+  }
+  .chatbot-icon img {
+    width: 38px;
+    height: 38px;
+    user-select: none;
+  }
+  .status-dot {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+    background: #00aa3c;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 5px #00aa3c;
+  }
+
+  /* WhatsApp icon styling */
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(37, 211, 102, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  .whatsapp-icon:hover {
+    background-color: #1ebe57;
+  }
+  .whatsapp-icon img {
+    width: 28px;
+    height: 28px;
+    user-select: none;
+  }
+
+  /* Container for main content: flex for left and right sides */
+  .study-abroad-section {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  /* Left side (text content) */
+  .left-content {
+    flex: 1 1 55%;
+    max-width: 650px;
+  }
+  .left-content h5 {
+    color: #5b5e9b;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .left-content h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+  }
+  .left-content p.intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+  }
+  .benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.8rem;
+  }
+  .benefits-list li:last-child {
+    margin-bottom: 0;
+  }
+  .benefits-list .icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  /* Icon backgrounds and inline SVG icons as background */
+
+  .icon-education {
+    background-color: #3b469a; /* Navy/Purple */
+  }
+  .icon-education svg {
+    fill: white;
+  }
+
+  .icon-immersion {
+    background-color: #f5b32f; /* Yellow */
+  }
+  .icon-immersion svg {
+    fill: #1c1c1c;
+  }
+
+  .icon-growth {
+    background-color: #3b7b60; /* Green */
+  }
+  .icon-growth svg {
+    fill: white;
+  }
+
+  /* Headings and paragraphs inside li */
+  .benefits-list h3 {
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .benefits-list p {
+    margin: 0;
+    max-width: 500px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .closing-paragraph {
+    max-width: 600px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .closing-paragraph b {
+    font-weight: 700;
+  }
+
+  /* Right side container for cards and images */
+  .right-cards {
+    flex: 1 1 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "career-edge career-image"
+      "networking-image global-networking";
+    gap: 0;
+    width: 420px;
+    max-width: 100%;
+  }
+
+  .career-edge {
+    grid-area: career-edge;
+    background-color: #3b469a; /* Purple */
+    color: white;
+    padding: 25px 20px 25px 30px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .global-networking {
+    grid-area: global-networking;
+    background-color: #f5b32f; /* Yellow */
+    color: #1c1c1c;
+    padding: 25px 30px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .career-edge p,
+  .global-networking p {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 6px;
+    line-height: 1.35;
+  }
+
+  .career-image {
+    grid-area: career-image;
+  }
+  .career-image img,
+  .networking-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .networking-image {
+    grid-area: networking-image;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 860px) {
+    .study-abroad-section {
+      flex-direction: column;
+      align-items: center;
+    }
+    .left-content,
+    .right-cards {
+      max-width: 100%;
+      width: 100%;
+    }
+    .right-cards {
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .left-content h1 {
+      font-size: 2rem;
+    }
+    .benefits-list h3 {
+      font-size: 1.05rem;
+    }
+    .career-edge,
+    .global-networking {
+      font-size: 1.1rem;
+      padding: 18px 15px;
+    }
+    .right-cards {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "career-edge"
+        "career-image"
+        "networking-image"
+        "global-networking";
+      gap: 15px;
+   }
+ }
+
+
+
+ /* services */
+
+
+  .servicescontainer {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  /* Headings */
+  .intro-text {
+    margin-bottom: 25px;
+  }
+  .intro-text h2 {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin: 0 0 5px 0;
+  }
+  .intro-text h1 {
+    font-weight: 700;
+    font-size: 2.9rem;
+    margin: 0 0 15px 0;
+  }
+  .intro-text p {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 700px;
+  }
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+  }
+  /* Card styles */
+  .service-card {
+    background: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  .service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .service-content {
+    padding: 18px 20px 24px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+  }
+  .service-desc {
+    font-size: 0.96rem;
+    color: #666;
+    flex-grow: 1;
+    margin-bottom: 18px;
+  }
+  .enquiry-btn {
+    background-color: #3b469a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 11px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .enquiry-btn:hover, .enquiry-btn:focus {
+    background-color: #2f346f;
+    outline: none;
+  }
+  /* Responsive */
+  @media (max-width: 960px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+  }
+}
+
+/* --- "View All Services" Button --- */
+.services-button-container {
+    text-align: center;
+    margin-top: 40px; /* Space above the button */
+}
+
+.services-view-all-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #3b469a; /* Button purple */
+    color: white;
+    border-radius: 30px; /* Rounded corners */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 5px 15px rgba(59, 70, 154, 0.4);
+    user-select: none;
+    transition: all 0.3s ease;
+}
+.services-view-all-btn:hover,
+.services-view-all-btn:focus {
+    background-color: #2a2f77;
+    box-shadow: 0 8px 20px rgba(59, 70, 154, 0.5);
+    transform: translateY(-3px);
+    outline: none;
+    color: white;
+}
+
+
+
+
+/* destinations */
+
+/* --- Destinations Section --- */
+
+.dest-section {
+    /* Sets a clean background for this section */
+    background: #f9f9f9;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    overflow: hidden; /* Important for containing the carousel */
+}
+
+.dest-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.dest-title {
+    font-weight: 400;
+    font-size: 2.7rem;
+    margin-bottom: 0;
+    color: #1b5e20; /* Keep your brand color */
+}
+
+.dest-title strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.dest-description {
+    max-width: 600px;
+    margin: 15px auto 40px auto;
+    font-size: 1.05rem;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* Carousel container */
+.dest-carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 1140px;
+    margin: 0 auto 30px auto;
+    
+    /* Add fade-out effect on the sides */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Carousel inner wrapper */
+.dest-track {
+    display: flex;
+    /* transition is handled by JS */
+    will-change: transform;
+}
+
+/* Each card */
+.dest-card {
+    background: #fff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    flex: 0 0 25%; /* Show 4 cards */
+    margin: 0 10px; /* This 10px is used in the JS (10px*2) */
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Destination image */
+.dest-card-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+}
+.dest-card-image {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Flag circle */
+.dest-card-flag {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    transform: translateX(-50%);
+    background: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+.dest-card-flag img {
+    width: 54px;
+    height: 36px;
+    object-fit: cover;
+}
+
+/* Card bottom info */
+.dest-card-info {
+    padding: 48px 20px 30px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 3;
+}
+.dest-card-name {
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin: 0 0 15px 0;
+    color: #333;
+}
+.dest-btn-more {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #f4a640;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+    user-select: none;
+    margin: 0 auto; /* Center the button */
+}
+.dest-btn-more svg {
+    stroke: #f4a640;
+    stroke-width: 2;
+    fill: none;
+    width: 16px;
+    height: 16px;
+}
+.dest-btn-more:hover,
+.dest-btn-more:focus {
+    color: #c17b1f;
+}
+.dest-btn-more:hover svg,
+.dest-btn-more:focus svg {
+    stroke: #c17b1f;
+}
+
+/* Carousel navigation buttons - we hide them */
+.dest-nav {
+    display: none;
+}
+
+/* View all destination button */
+.dest-btn-viewall {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 12px 28px;
+    background-color: #3b469a;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 5px 15px rgba(59, 70, 154, 0.4);
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+.dest-btn-viewall:hover,
+.dest-btn-viewall:focus {
+    background-color: #2a2f77;
+    outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .dest-card {
+        flex: 0 0 33.3333%; /* 3 cards */
+        margin: 0 8px;
+    }
+}
+@media (max-width: 900px) {
+    .dest-card {
+        flex: 0 0 50%; /* 2 cards */
+        margin: 0 6px;
+    }
+}
+@media (max-width: 600px) {
+    .dest-card {
+        flex: 0 0 80%; /* 1 card */
+        margin: 0 10px;
+    }
+}
+
+
+
+/* why choose us */
+
+/* --- Why Choose Us Section (WCU) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+   (only if you don't have one already) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); */
+
+.wcu-section {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #555;
+    padding: 60px 0; /* Replaced margin with padding */
+}
+
+.wcu-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: flex-start;
+}
+@media (max-width: 900px) {
+    .wcu-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 0 20px;
+    }
+}
+
+/* Left Content */
+.wcu-left-content {
+    max-width: 460px;
+}
+
+.wcu-left-content h2.wcu-title {
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #0f2137; /* dark slate */
+    margin-bottom: 22px;
+    line-height: 1.1;
+}
+
+.wcu-left-content p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+}
+
+.wcu-btn-guarantee {
+    background-color: #0070f3; /* clear bright blue */
+    color: white;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 6px 16px rgb(0 112 243 / 0.4);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.2;
+}
+.wcu-btn-guarantee:hover,
+.wcu-btn-guarantee:focus {
+    background-color: #005fcc;
+    outline: none;
+}
+
+/* Right Grid */
+.wcu-right-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 32px;
+}
+@media (max-width: 700px) {
+    .wcu-right-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Individual Card */
+.wcu-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+    padding: 32px 36px;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    transition: box-shadow 0.3s ease;
+    min-height: 140px;
+}
+.wcu-card:hover,
+.wcu-card:focus-within {
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px); /* Add a subtle lift */
+}
+.wcu-card:focus-within {
+    outline: 3px solid #0070f3;
+    outline-offset: 3px;
+}
+
+/* Card Icon */
+.wcu-card-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #0070f3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0070f3;
+}
+.wcu-card-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #0070f3;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+/* Card Text Content */
+.wcu-card-content {
+    flex-grow: 1;
+}
+.wcu-card-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #222222;
+    margin: 0 0 8px 0;
+}
+.wcu-card-desc {
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+
+/* testimonials */
+
+
+/* --- Testimonials Section (Testi) --- */
+
+/* Remember to add this @import to the VERY TOP of your style.css file
+   (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); */
+
+.testi-section {
+    max-width: 1140px;
+    margin: 80px auto;
+    padding: 0 24px;
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #555;
+}
+
+.testi-section .testi-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.75rem;
+    color: #0f2137;
+    margin-bottom: 36px;
+}
+
+.testi-carousel {
+    overflow: hidden;
+    position: relative;
+    
+    /* Add fade-out effect on the sides */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.testi-track {
+    display: flex;
+    will-change: transform;
+}
+
+.testi-card {
+    flex: 0 0 280px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgb(0 0 0 / 0.1);
+    padding: 24px 28px 32px 28px;
+    margin-right: 24px; /* This margin is used in the JS */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    user-select: none;
+}
+
+.testi-card:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 600px) {
+    .testi-card {
+        flex: 0 0 85%;
+        margin-right: 20px;
+    }
+}
+
+.testi-user-image {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid #0070f3;
+    align-self: center;
+}
+
+.testi-user-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f2137;
+    text-align: center;
+    margin: 0;
+}
+
+.testi-review-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+/* --- Contact Us Section --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+(only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); */
+
+.contact-section-wrapper {
+    max-width: 1140px;
+    margin: 80px auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+    overflow: hidden; /* For animations */
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #444;
+}
+@media (max-width: 900px) {
+    .contact-section-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 20px;
+    }
+}
+
+/* Common slide-in (namespaced) */
+.contact-slide-left, 
+.contact-slide-right {
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact-slide-left {
+    transform: translateX(-100px); /* Slide from left */
+}
+.contact-slide-right {
+    transform: translateX(100px); /* Slide from right */
+}
+.contact-slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Form side */
+.contact-form {
+    flex: 1 1 450px;
+    background: #fff;
+    padding: 36px 40px;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.07);
+}
+
+.contact-form h3.contact-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #0f2137;
+    margin-bottom: 24px;
+}
+
+.contact-form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+    padding: 12px 14px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1.8px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    font-family: 'Inter', sans-serif; /* Inherit font */
+}
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 6px rgba(0,112,243,0.3);
+}
+
+.contact-form-group textarea {
+    min-height: 120px;
+    max-height: 200px;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    background-color: #0070f3;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,112,243,0.4);
+    transition: background-color 0.3s ease;
+}
+.contact-submit-btn:hover,
+.contact-submit-btn:focus {
+    background-color: #005fcc;
+    outline: none;
+}
+
+/* Info side */
+.contact-office-info {
+    flex: 1 1 350px;
+    background: #fff;
+    padding: 36px 40px;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.07);
+    color: #0f2137;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.contact-office-info h3.contact-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+.contact-info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.contact-info-icon {
+    font-size: 1.6rem;
+    color: #0070f3;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.contact-info-content {
+    flex-grow: 1;
+}
+.contact-info-title {
+    font-weight: 600;
+    margin: 0 0 5px 0; /* Reset margin */
+    font-size: 1.1rem;
+}
+.contact-info-text {
+    line-height: 1.4;
+    font-size: 1rem;
+    color: #444;
+    white-space: pre-line;
+    margin: 0; /* Reset margin */
+}
+
+
+/* footer */
+
+/* --- Footer Section --- */
+
+/* Remember to add this @import to the VERY TOP of your style.css file
+   (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); */
+
+.footer-section {
+    background-color: #0a1449; /* dark navy */
+    color: #f0f0f0;
+    padding: 48px 24px 24px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-top {
+    max-width: 1140px;
+    margin: 0 auto 32px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+}
+
+/* Left section with logo and about */
+.footer-left {
+    flex: 1 1 280px;
+    min-width: 260px;
+    max-width: 320px;
+}
+
+.footer-logo {
+    font-size: 1.1rem; /* Reduced size to be more realistic */
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.footer-about {
+    font-weight: 400;
+    line-height: 1.5;
+    color: #d1d5db;
+    margin: 0; /* Removed default p margin */
+}
+
+/* Navigation columns */
+.footer-navs {
+    flex: 2 1 400px; /* Adjusted flex-basis */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 60px;
+    min-width: 260px;
+}
+
+.footer-nav-column {
+    min-width: 130px;
+}
+.footer-nav-title { /* Shared title class */
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 16px 0; /* Reset default margin */
+    color: #e0e7ff;
+}
+.footer-nav-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-nav-column ul li {
+    margin-bottom: 10px;
+}
+.footer-nav-column ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-nav-column ul li a:hover,
+.footer-nav-column ul li a:focus {
+    color: #3b82f6; /* bright blue on hover */
+    outline: none;
+}
+
+/* Get in touch */
+.footer-contact {
+    flex: 1 1 280px;
+    min-width: 280px;
+    color: #cbd5e1;
+    font-style: normal; /* Reset address tag default */
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start; /* Align to top */
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+.footer-contact-icon {
+    fill: #3b82f6;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px; /* Align icon slightly */
+}
+.footer-contact-item a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-contact-item a:hover,
+.footer-contact-item a:focus {
+    color: #3b82f6;
+    outline: none;
+}
+.footer-phone-secondary {
+    display: block;
+    margin-top: 4px;
+}
+
+
+/* Social icons */
+.footer-social-icons {
+    margin-top: 24px;
+    display: flex;
+    gap: 14px;
+}
+.footer-social-link {
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+.footer-social-link:hover,
+.footer-social-link:focus {
+    transform: scale(1.1);
+    outline: none;
+}
+.footer-svg-icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+/* Social media background colors */
+.fb-bg { background-color: #3b5998; }
+.ig-bg { background-color: #E1306C; }
+.yt-bg { background-color: #FF0000; }
+
+
+/* Bottom bar */
+.footer-divider {
+    border: none; 
+    border-top: 1px solid #374151; 
+    margin: 0 auto 12px; 
+    max-width: 1140px;
+}
+.footer-bottom {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 6px 24px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+.footer-bottom-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-bottom-links a:hover,
+.footer-bottom-links a:focus {
+    color: #3b82f6;
+    outline: none;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 991.98px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 32px; 
+        justify-content: flex-start; /* ADD THIS LINE */
+    }
+    .footer-navs {
+        flex-direction: column; /* This stacks the link columns */
+        justify-content: flex-start;
+        gap: 32px;
+    }
+    .footer-contact {
+        margin-top: 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-bottom-links {
+        margin-top: 8px;
+    }
+}
+
+
+
+
+/* all destinations */
+
+
+/* --- Destinations Grid Page (dest-grid) --- */
+
+.dest-grid-page {
+    font-family: 'Montserrat', sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    padding: 40px 20px 60px;
+}
+
+.dest-grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1.dest-grid-main-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #333;
+    letter-spacing: 0.04em;
+}
+
+.dest-grid-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px 28px;
+}
+
+/* Each card */
+.dest-grid-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transform */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+.dest-grid-card:hover,
+.dest-grid-card:focus {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.16);
+    transform: translateY(-5px); /* Add lift on hover */
+    outline: none;
+}
+
+/* Image container with aspect ratio */
+.dest-grid-image {
+    position: relative;
+    width: 100%;
+    padding-top: 66.66%; /* 3:2 aspect */
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.dest-grid-image img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid #e5e7eb;
+}
+.dest-grid-card:hover .dest-grid-image img,
+.dest-grid-card:focus .dest-grid-image img {
+    transform: scale(1.05);
+}
+
+/* Title */
+.dest-grid-title {
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* aboutus */
+
+
+/* --- About Us Page (about-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you don't have one already) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap'); */
+
+.about-page-section {
+    font-family: 'Playfair Display', serif;
+    background: #fff;
+    color: #121212;
+    line-height: 1.6;
+    padding: 40px 24px;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.about-page-link {
+    color: #3399cc;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+a.about-page-link:hover,
+a.about-page-link:focus {
+    text-decoration: underline;
+}
+
+h1.about-page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #121212;
+}
+
+.about-page-highlight {
+    font-style: italic;
+    color: #3399cc;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+p.about-page-subtitle {
+    font-weight: 400;
+    color: #999999;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.about-page-container {
+    display: flex;
+    gap: 40px;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.about-page-text {
+    flex: 1 1 480px;
+    min-width: 300px;
+}
+
+.about-page-text p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-page-image {
+    flex: 1 1 450px;
+    min-width: 280px;
+}
+
+.about-page-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: block;
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .about-page-container {
+        flex-direction: column;
+    }
+    .about-page-text, 
+    .about-page-image {
+        min-width: 100%;
+    }
+    h1.about-page-title {
+        font-size: 2.2rem;
+    }
+    .about-page-highlight {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+/* --- All Services Page (services-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added 'Playfair Display') 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap'); */
+
+.services-page-section {
+    font-family: 'Playfair Display', serif;
+    background: #e5ebf8;
+    color: #121212;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+h2.services-page-main-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #d40000; /* bright red */
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h2.services-page-main-title svg {
+    width: 32px;
+    height: 32px;
+    stroke: #0050a0; /* Changed fill to stroke */
+    stroke-width: 2; /* Added stroke-width */
+    fill: none; /* Removed fill */
+}
+
+.services-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.services-page-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    padding: 30px 20px 40px;
+    text-align: center;
+    cursor: default;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Animate in */
+.services-page-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect */
+.services-page-card:hover,
+.services-page-card:focus-within {
+    box-shadow: 0 16px 35px rgb(0 0 0 / 0.18);
+    transform: translateY(-10px) scale(1.03);
+    outline: none;
+}
+
+/* Icons style */
+.services-page-card svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+    stroke: #121212;
+    stroke-width: 2;
+    fill: none;
+}
+
+.services-page-card .services-page-title {
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    color: #121212;
+}
+
+.services-page-card .services-page-description {
+    font-size: 0.95rem;
+    color: #555555;
+    margin: 0 0 24px 0;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.services-page-btn-connect {
+    background: linear-gradient(90deg, #6b6b83 0%, #a27acc 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 18px rgba(107, 107, 131, 0.5);
+    transition: background 0.3s ease;
+    text-decoration: none;
+    user-select: none;
+    display: inline-block;
+    min-width: 160px;
+}
+
+.services-page-btn-connect:hover,
+.services-page-btn-connect:focus {
+    background: linear-gradient(90deg, #4f3970 0%, #6e549d 100%);
+    outline: none;
+    text-decoration: none;
+    color: white; /* Ensure text stays white */
+}
+
+/* Responsive font scaling */
+@media (max-width: 600px) {
+    h2.services-page-main-title {
+        font-size: 2rem;
+    }
+
+    .services-page-card svg {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 14px;
+    }
+
+    .services-page-btn-connect {
+        min-width: 140px;
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+}
+
+
+/* --- Contact Us Subpage (contact-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.contact-page-wrapper {
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    padding: 50px 20px;
+}
+
+.contact-page-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.contact-page-info {
+    flex: 1 1 400px;
+    min-width: 320px;
+    color: #111;
+}
+
+.contact-page-info small {
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.contact-page-info h2 {
+    font-weight: 900;
+    font-size: 2.8rem;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    color: #111; /* Explicitly set color */
+}
+.contact-page-info p.contact-page-description {
+    font-weight: 400;
+    font-size: 1.05rem;
+    max-width: 450px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.contact-page-details {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+.contact-page-details p {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.contact-page-details p svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #7a7a7a;
+    stroke-width: 1.8px;
+}
+
+/* Form Side */
+.contact-page-form-container {
+    flex: 1 1 520px;
+    min-width: 320px;
+    background: white;
+    padding: 30px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.contact-page-form-container form {
+    display: grid;
+    gap: 18px 24px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact-page-form-container form textarea {
+    grid-column: 1 / -1;
+    resize: vertical;
+    min-height: 110px;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+    
+.contact-page-form-container input, 
+.contact-page-form-container textarea {
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.contact-page-form-container input::placeholder,
+.contact-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.contact-page-form-container input:focus,
+.contact-page-form-container textarea:focus {
+    border-color: #0050a0;
+    box-shadow: 0 0 8px rgba(0, 80, 160, 0.3);
+    outline: none; /* Removed outline for a cleaner focus */
+}
+
+.contact-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.25s ease;
+}
+
+.contact-page-form-container button[type="submit"]:hover,
+.contact-page-form-container button[type="submit"]:focus {
+    background-color: #003366;
+    outline: none;
+}
+
+/* Send icon style */
+.contact-page-send-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 800px) {
+    .contact-page-container {
+        flex-direction: column;
+    }
+    .contact-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+    .contact-page-form-container button[type="submit"] {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/* --- Study in Germany Page (germany-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.germany-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section, not padding on body */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.germany-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.germany-page-left-content .germany-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.germany-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.germany-page-left-content .germany-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.germany-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.germany-page-left-content .germany-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.germany-page-left-content .germany-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.germany-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.germany-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.germany-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.germany-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.germany-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.germany-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.germany-page-form-container input, 
+.germany-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.germany-page-form-container input::placeholder,
+.germany-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.germany-page-form-container input:focus,
+.germany-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.germany-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.germany-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.germany-page-form-container button[type="submit"]:hover,
+.germany-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.germany-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .germany-page-section {
+        flex-direction: column;
+    }
+
+    .germany-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .germany-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* --- Study in UK Page (uk-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.uk-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.uk-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.uk-page-left-content .uk-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.uk-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.uk-page-left-content .uk-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.uk-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.uk-page-left-content .uk-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.uk-page-left-content .uk-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.uk-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.uk-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.uk-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.uk-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.uk-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.uk-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.uk-page-form-container input, 
+.uk-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.uk-page-form-container input::placeholder,
+.uk-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.uk-page-form-container input:focus,
+.uk-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.uk-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.uk-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.uk-page-form-container button[type="submit"]:hover,
+.uk-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.uk-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .uk-page-section {
+        flex-direction: column;
+    }
+
+    .uk-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .uk-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+
+
+/* --- Study in Lithuania Page (lithuania-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.lithuania-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.lithuania-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.lithuania-page-left-content .lithuania-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.lithuania-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.lithuania-page-left-content .lithuania-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.lithuania-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.lithuania-page-left-content .lithuania-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.lithuania-page-left-content .lithuania-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.lithuania-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.lithuania-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.lithuania-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.lithuania-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.lithuania-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.lithuania-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.lithuania-page-form-container input, 
+.lithuania-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.lithuania-page-form-container input::placeholder,
+.lithuania-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.lithuania-page-form-container input:focus,
+.lithuania-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.lithuania-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.lithuania-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.lithuania-page-form-container button[type="submit"]:hover,
+.lithuania-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.lithuania-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .lithuania-page-section {
+        flex-direction: column;
+    }
+
+    .lithuania-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .lithuania-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+
+/* --- Study in Latvia Page (latvia-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.latvia-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.latvia-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.latvia-page-left-content .latvia-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.latvia-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.latvia-page-left-content .latvia-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.latvia-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.latvia-page-left-content .latvia-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.latvia-page-left-content .latvia-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.latvia-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.latvia-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.latvia-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.latvia-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.latvia-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.latvia-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.latvia-page-form-container input, 
+.latvia-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.latvia-page-form-container input::placeholder,
+.latvia-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.latvia-page-form-container input:focus,
+.latvia-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.latvia-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.latvia-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.latvia-page-form-container button[type="submit"]:hover,
+.latvia-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.latvia-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .latvia-page-section {
+        flex-direction: column;
+    }
+
+    .latvia-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .latvia-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* --- Study in Malta Page (malta-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.malta-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.malta-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.malta-page-left-content .malta-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.malta-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.malta-page-left-content .malta-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.malta-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.malta-page-left-content .malta-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.malta-page-left-content .malta-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.malta-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.malta-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.malta-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.malta-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.malta-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.malta-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.malta-page-form-container input, 
+.malta-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.malta-page-form-container input::placeholder,
+.malta-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.malta-page-form-container input:focus,
+.malta-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.malta-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.malta-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.malta-page-form-container button[type="submit"]:hover,
+.malta-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.malta-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .malta-page-section {
+        flex-direction: column;
+    }
+
+    .malta-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .malta-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+
+/* --- Study in Italy Page (italy-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.italy-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.italy-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.italy-page-left-content .italy-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.italy-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.italy-page-left-content .italy-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.italy-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.italy-page-left-content .italy-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.italy-page-left-content .italy-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.italy-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.italy-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.italy-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.italy-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.italy-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.italy-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.italy-page-form-container input, 
+.italy-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.italy-page-form-container input::placeholder,
+.italy-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.italy-page-form-container input:focus,
+.italy-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.italy-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.italy-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.italy-page-form-container button[type="submit"]:hover,
+.italy-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.italy-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .italy-page-section {
+        flex-direction: column;
+    }
+
+    .italy-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .italy-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+
+/* --- Study in Canada Page (canada-page) --- */
+
+/* Add this @import to the VERY TOP of your style.css file
+  (only if you haven't already added the 'Inter' font) 
+*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
+.canada-page-section {
+    max-width: 1140px;
+    margin: 40px auto; /* Use margin on section */
+    padding: 0 24px; /* Use padding on section */
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+    /* Styles moved from 'body' */
+    font-family: 'Inter', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
+
+/* Left side */
+.canada-page-left-content {
+    flex: 1 1 520px;
+    min-width: 320px;
+    color: #111;
+    line-height: 1.5;
+}
+
+.canada-page-left-content .canada-page-main-title {
+    font-weight: 700;
+    color: #d40000; /* bright red */
+    font-size: 2.4rem;
+    margin: 0 0 24px 0; /* Reset margin */
+    font-family: 'Inter', sans-serif;
+}
+
+.canada-page-left-content section {
+    margin-bottom: 32px;
+}
+
+.canada-page-left-content .canada-page-subtitle {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 12px 0; /* Reset margin */
+    color: #333;
+}
+
+.canada-page-left-content p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.canada-page-left-content .canada-page-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.canada-page-left-content .canada-page-list li {
+    margin-bottom: 8px;
+}
+
+/* Right side */
+.canada-page-right-content {
+    flex: 1 1 450px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.canada-page-image-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 320px;
+}
+
+.canada-page-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Form styles */
+.canada-page-form-container {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.canada-page-form-container h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0; /* Reset margin */
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.canada-page-form-container form {
+    display: grid;
+    gap: 18px 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.canada-page-form-container input, 
+.canada-page-form-container textarea {
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline-offset: 3px;
+    outline-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    color: #222;
+}
+
+.canada-page-form-container input::placeholder,
+.canada-page-form-container textarea::placeholder {
+    font-style: italic;
+    color: #999;
+}
+
+.canada-page-form-container input:focus,
+.canada-page-form-container textarea:focus {
+    border-color: #d40000;
+    box-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
+    outline: none; /* Removed outline */
+}
+
+.canada-page-form-container textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    max-height: 280px;
+}
+
+.canada-page-form-container button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: #222;
+    color: white;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.25s ease;
+}
+
+.canada-page-form-container button[type="submit"]:hover,
+.canada-page-form-container button[type="submit"]:focus {
+    background-color: #900000;
+    outline: none;
+}
+
+/* Send icon */
+.canada-page-send-icon {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .canada-page-section {
+        flex-direction: column;
+    }
+
+    .canada-page-form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .canada-page-form-container button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* --- Sticky WhatsApp Icon --- */
+.whatsapp-sticky-icon {
+    position: fixed; /* Makes it "stick" */
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000; /* Sits on top of all other content */
+    
+    /* Styling */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #FFF;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+    /* Icon Centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px; /* Size of the WhatsApp icon */
+    
+    /* Hover Animation */
+    transition: all 0.3s ease;
+    text-decoration: none; /* ADD THIS LINE */
+}
+
+.whatsapp-sticky-icon:hover {
+    transform: scale(1.1); /* Slightly enlarges on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    text-decoration: none; /* ADD THIS LINE */
+}
